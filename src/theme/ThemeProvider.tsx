@@ -1,8 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ThemeContext from './themeContext';
+import useLocalStorage from '../utils/useLocalStorage';
 
 const useProviderTheme = (initialTheme: 'light' | 'dark' ) => {
-    const [theme, setTheme] = useState(initialTheme);
+    const [theme, setTheme] = useLocalStorage({
+        initialValue: initialTheme,
+        propStorage: 'theme'
+    });
 
     useEffect(() => {
         if(theme === 'dark'){
