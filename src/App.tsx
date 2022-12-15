@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ThemeProvider from './theme/ThemeProvider';
+import Header from './components/Header';
+import Input from './components/Input';
+import Select from './components/Select';
+
+const optionsSelect = [
+  {
+    value: 'africa',
+    label: 'Africa'
+  },
+  {
+    value: 'america',
+    label: 'America'
+  },
+  {
+    value: 'asia',
+    label: 'Asia'
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Header />
+      <main className="h-screen pt-6 bg-gray-light-background dark:bg-blue-dark-background">
+        <section className="mx-auto container">
+          <Input value="" onChange={() => {}} placeholder="Search for a country..." />
+
+          <div className="relative mt-6">
+            <Select placeholder="Filter by Region" onChange={() => {}} options={optionsSelect} />
+          </div>
+        </section>
+        
+      </main>
+    </ThemeProvider>
   );
 }
 
