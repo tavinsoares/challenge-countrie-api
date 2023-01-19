@@ -1,9 +1,11 @@
+import classnames from 'classnames';
 import Select from 'react-select';
 
-const SelectCustom = ({ options, onChange, placeholder }: SelectProps) => {  
+const SelectCustom = ({ options, onChange, placeholder, classNames }: SelectProps) => {  
+    const containerClasses = classnames(classNames);
 
     return (
-        <div className="w-4/6">
+        <div className={containerClasses}>
             <Select 
             placeholder={placeholder}
             classNames={{
@@ -23,7 +25,8 @@ SelectCustom.defaultProps = {
 type SelectProps = {
     options: Array<OptionType>,
     onChange: VoidFunction,
-    placeholder?: string
+    placeholder?: string,
+    classNames?: string
 }
 
 type OptionType = {

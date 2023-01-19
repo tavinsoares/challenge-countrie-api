@@ -25,11 +25,11 @@ function App() {
     <ThemeProvider>
       <Header />
       <main className="lg:h-screen h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
-        <section className="mx-auto container">
-          <Input value="" onChange={() => {}} placeholder="Search for a country..." />
+        <section className="flex md:justify-between md:flex-row sm:flex-col mx-auto container">
+          <Input className="md:w-3/6" value="" onChange={() => {}} placeholder="Search for a country..." />
 
-          <div className="relative mt-6">
-            <Select placeholder="Filter by Region" onChange={() => {}} options={optionsSelect} />
+          <div className="relative md:mt-0 sm:mt-6">
+            <Select classNames="sm:w-4/6 md:w-full" placeholder="Filter by Region" onChange={() => {}} options={optionsSelect} />
           </div>
         </section>
         <section className="mx-auto container">
