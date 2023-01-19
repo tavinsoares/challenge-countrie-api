@@ -32,7 +32,7 @@ function App() {
             <Select classNames="sm:w-4/6 md:w-full" placeholder="Filter by Region" onChange={() => {}} options={optionsSelect} />
           </div>
         </section>
-        <section className="mx-auto container">
+        <section className="mx-auto container pb-8">
           <CountrieCards />
         </section>
         
