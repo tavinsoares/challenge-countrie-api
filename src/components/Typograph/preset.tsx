@@ -6,9 +6,14 @@ const defaultProps = {
 
 export const Presets: { [char: string]: any } = {
     h1: {
-        default: `text-xl m-0 p-0 ${defaultProps.font} ${defaultProps.color}`,
-        size: ['large', 'medium'],
+        default: `m-0 p-0 ${defaultProps.font} ${defaultProps.color}`,
+        size: ['extraLarge', 'large', 'medium'],
         weight: ['bold', 'regular'],
+    },
+    h3: {
+        default: `m-0 p-0 ${defaultProps.font} ${defaultProps.color}`,
+        size: ['extraLarge', 'large', 'medium'],
+        weight: ['bold', 'regular']
     },
     span: {
         weight: ['bold', 'regular'],
@@ -23,6 +28,8 @@ export const Weights: { [char: string]: string } = {
 }
 
 export const Size: { [char: string]: string } = {
-    large: 'text-xl',
-    medium: 'text-base'
+    small: 'text-sm',
+    medium: 'text-base',
+    large: 'text-lg',
+    extraLarge: 'text-xl',
 }

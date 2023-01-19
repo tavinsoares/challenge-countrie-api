@@ -5,9 +5,9 @@ const Header = ({ title }: HeaderProps) => {
 
     return (
         <header className="py-10 shadow-2sm bg-white dark:bg-blue-dark-element">
-            <div className="relative container mx-auto flex items-center">
+            <div className="relative container sm:container lg:container xl:container container mx-auto flex items-center">
                 <Typography 
-                size="large" 
+                size="extraLarge" 
                 weight="bold" 
                 preset="h1" 
                 htmlTag="h1" 

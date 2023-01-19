@@ -3,6 +3,7 @@ import ThemeProvider from './theme/ThemeProvider';
 import Header from './components/Header';
 import Input from './components/Input';
 import Select from './components/Select';
+import CountrieCards from './components/ContrieCards';
 
 const optionsSelect = [
   {
@@ -23,13 +24,16 @@ function App() {
   return (
     <ThemeProvider>
       <Header />
-      <main className="h-screen pt-6 bg-gray-light-background dark:bg-blue-dark-background">
+      <main className="lg:h-screen h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
         <section className="mx-auto container">
           <Input value="" onChange={() => {}} placeholder="Search for a country..." />
 
           <div className="relative mt-6">
             <Select placeholder="Filter by Region" onChange={() => {}} options={optionsSelect} />
           </div>
+        </section>
+        <section className="mx-auto container">
+          <CountrieCards />
         </section>
         
       </main>

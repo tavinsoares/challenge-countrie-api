@@ -3,7 +3,7 @@ import { Presets, Weights, Size } from './preset';
 
 type TypographyProps = {
     htmlTag: ElementType,
-    className: string,
+    className?: string,
     children: ReactNode
     preset: string
     size: string
