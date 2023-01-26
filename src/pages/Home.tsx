@@ -1,9 +1,9 @@
 import './App.css';
-import ThemeProvider from './theme/ThemeProvider';
-import Header from './components/Header';
-import Input from './components/Input';
-import Select from './components/Select';
-import CountrieCards from './components/ContrieCards';
+import ThemeProvider from '../theme/ThemeProvider';
+import Header from '../components/Header';
+import Input from '../components/Input';
+import Select from '../components/Select';
+import CountrieCards from '../components/ContrieCards';
 
 const optionsSelect = [
   {
@@ -20,7 +20,7 @@ const optionsSelect = [
   }
 ]
 
-function App() {
+function Home() {
   return (
     <ThemeProvider>
       <Header />
@@ -41,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
