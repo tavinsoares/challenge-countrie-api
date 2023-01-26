@@ -16,7 +16,7 @@ const useLocalStorage = ({initialValue, propStorage}: useLocalStoragePropsParms)
     
       useEffect(() => {
         window.localStorage.setItem(propStorage, JSON.stringify(value));
-      }, [value])
+      }, [value, propStorage])
       
       return [value, setValue]
 }
