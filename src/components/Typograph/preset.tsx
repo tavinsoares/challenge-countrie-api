@@ -10,19 +10,25 @@ export const Presets: { [char: string]: any } = {
         size: ['extraLarge', 'large', 'medium'],
         weight: ['bold', 'regular'],
     },
+    h2: {
+        default: `m-0 p-0 ${defaultProps.font} ${defaultProps.color}`,
+        size: ['extraLarge', 'large', 'medium'],
+        weight: ['bold', 'regular'],
+    },
     h3: {
         default: `m-0 p-0 ${defaultProps.font} ${defaultProps.color}`,
         size: ['extraLarge', 'large', 'medium'],
         weight: ['bold', 'regular']
     },
     span: {
-        weight: ['bold', 'regular'],
-        size: ['medium'],
+        weight: ['bold', 'regular', 'light'],
+        size: ['medium', 'small'],
         default: `m-0 p-0 ${defaultProps.font} ${defaultProps.color}`
     }
 }
 
 export const Weights: { [char: string]: string } = {
+    light: 'font-light',
     bold: 'font-bold',
     regular: 'font-normal'
 }

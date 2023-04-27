@@ -33,7 +33,4 @@ const Card = ({ title, description }: CardProps) => {
     )
 }
 
-
-
-
 export default Card

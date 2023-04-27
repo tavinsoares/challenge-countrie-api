@@ -12,9 +12,9 @@ const DescriptionCard = ({ description }: DescriptionProps ) => {
     return (
         <ul className="mt-3">
             {
-                description.map(item => {
+                description.map((item, index) => {
                     return (
-                        <li>
+                        <li key={index}>
                             <Typography 
                                 htmlTag="span"
                                 preset="span"

@@ -1,4 +1,3 @@
-import './App.css';
 import ThemeProvider from '../theme/ThemeProvider';
 import Header from '../components/Header';
 import Input from '../components/Input';
