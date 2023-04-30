@@ -7,7 +7,7 @@ const DescriptionItem = ({ descriptionItem, value, containerClassName }: Descrip
         return null;
     }
 
-    const containerClasses = classnames("mb-4", containerClassName)
+    const containerClasses = classnames(containerClassName)
 
     return (
         <div className={containerClasses}>
@@ -25,7 +25,6 @@ const DescriptionItem = ({ descriptionItem, value, containerClassName }: Descrip
                 preset="span"
                 size="small"
                 weight="light"
-                className="mb-4"
             >
             {` ${value}`}
             </Typography>

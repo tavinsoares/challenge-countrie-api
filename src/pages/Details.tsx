@@ -27,7 +27,7 @@ const Details = () => {
         <section className="container">
             <ButtonBack />
         </section>
-        <section className="container md:max-w-[360px]">
+        <section className="container md:max-w-[360px] lg:max-w-full">
             <DetailsCard {...dataMock} />      
         </section>
         </main>
