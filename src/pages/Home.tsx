@@ -9,6 +9,7 @@ import CountrieCards from '../components/ContrieCards';
 import { countriesAPI } from '../service/countriesAPI';
 import useAsync from '../utils/useAsync';
 import { formaterDataCountrie } from '../utils/formaterDataCountrie';
+import { SingleValue } from 'react-select';
 
 const optionsSelect = [
   {
@@ -22,6 +23,22 @@ const optionsSelect = [
   {
     value: 'asia',
     label: 'Asia'
+  },
+  {
+    value: 'europe',
+    label: 'Europa'
+  },
+  {
+    value: 'oceania',
+    label: 'Oceania'
+  },
+  {
+    value: 'antarctic',
+    label: 'Antártida'
+  },
+  {
+    value: 'all',
+    label: 'Todos'
   }
 ]
 
@@ -36,10 +53,27 @@ function Home() {
       return;
     }
 
-    const promise = countriesAPI.region('america');
+    const promise = countriesAPI.all();
 
     run(promise)
   }, [])
+
+  const OnSelectRegion = (option: SingleValue<{
+    label: string,
+    value: string
+  }>) => {
+    const value  = option?.value;
+    let promise;
+    if(!value) return;
+
+   if(value === 'all'){
+      promise = countriesAPI.all();
+    } else {
+      promise = countriesAPI.region(value);
+    }
+    
+    run(promise)
+  }
 
   return (
     <ThemeProvider>
@@ -49,7 +83,7 @@ function Home() {
           <Input className="md:w-3/6" value="" onChange={() => {}} placeholder="Search for a country..." />
 
           <div className="relative md:mt-0 sm:mt-6">
-            <Select classNames="sm:w-4/6 md:w-full" placeholder="Filter by Region" onChange={() => {}} options={optionsSelect} />
+            <Select classNames="sm:w-4/6 md:w-full" placeholder="Filter by Region" onChange={OnSelectRegion} options={optionsSelect} />
           </div>
         </section>
         <section className="mx-auto container pb-8">

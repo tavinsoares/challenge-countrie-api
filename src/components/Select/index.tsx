@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import Select from 'react-select';
+import Select, { ActionMeta, SingleValue } from 'react-select';
 
 const SelectCustom = ({ options, onChange, placeholder, classNames }: SelectProps) => {  
     const containerClasses = classnames(classNames)
@@ -29,7 +29,7 @@ SelectCustom.defaultProps = {
 
 type SelectProps = {
     options: Array<OptionType>,
-    onChange: VoidFunction,
+    onChange: (newValue: SingleValue<OptionType>, actionMeta: ActionMeta<OptionType>) => void,
     placeholder?: string,
     classNames?: string
 }

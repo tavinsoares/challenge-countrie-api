@@ -18,7 +18,7 @@ export const formaterDataCountrie = (data: Array<any>) =>{
         },
         {
           title: 'Capital',
-          content: item.capital[0]
+          content: item.capital && item.capital.length > 0 ? item.capital[0] : ''
         })
   
         return itemData;
