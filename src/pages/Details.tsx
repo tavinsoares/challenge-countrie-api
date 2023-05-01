@@ -26,13 +26,12 @@ const Details = () => {
         const promise = countriesAPI.details(name || '');
     
         run(promise)
-      }, [])
-    
+      }, [data, name, run])
     
     return(
     <ThemeProvider>
         <Header />
-        <main className="lg:h-screen h-screen pt-6 bg-gray-light-background dark:bg-blue-dark-background">
+        <main className="lg:h-screen md:h-screen sm:h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
         <section className="container">
             <ButtonBack />
         </section>

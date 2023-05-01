@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useState, ChangeEvent } from 'react';
+import { SingleValue } from 'react-select';
 
 import ThemeProvider from '../theme/ThemeProvider';
 import Header from '../components/Header';
@@ -9,7 +10,7 @@ import CountrieCards from '../components/ContrieCards';
 import { countriesAPI } from '../service/countriesAPI';
 import useAsync from '../utils/useAsync';
 import { formaterDataCountrie } from '../utils/formaterDataCountrie';
-import { SingleValue } from 'react-select';
+import { filterByName } from '../utils/filterByName'
 
 const optionsSelect = [
   {
@@ -48,15 +49,18 @@ function Home() {
     formater: formaterDataCountrie
    });
 
+  const [inputValue, setInputValue] = useState('')
+
   useEffect(() => {
-    if(data && data.length > 0){
-      return;
+    if(inputValue !== ''){
+      run(filterByName(data, inputValue))
     }
 
-    const promise = countriesAPI.all();
+    if(inputValue === ''){
+      run(countriesAPI.all())
+    }
 
-    run(promise)
-  }, [])
+  }, [run, inputValue])
 
   const OnSelectRegion = (option: SingleValue<{
     label: string,
@@ -75,12 +79,17 @@ function Home() {
     run(promise)
   }
 
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+  }
+
   return (
     <ThemeProvider>
       <Header />
-      <main className="lg:h-full h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
+      <main className="lg:h-screen md:h-screen sm:h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
         <section className="flex md:justify-between md:flex-row sm:flex-col mx-auto container">
-          <Input className="md:w-3/6" value="" onChange={() => {}} placeholder="Search for a country..." />
+          <Input className="md:w-3/6" value={inputValue} onChange={onChangeInput} placeholder="Search for a country..." />
 
           <div className="relative md:mt-0 sm:mt-6">
             <Select classNames="sm:w-4/6 md:w-full" placeholder="Filter by Region" onChange={OnSelectRegion} options={optionsSelect} />

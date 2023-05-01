@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import { useTheme } from '../../theme/useTheme';
+import { ChangeEventHandler } from 'react';
 
 const Input = ({ value, onChange, placeholder, className }: InputPros) => {
     const containerClasses = classnames("rounded-xl bg-white dark:bg-blue-dark-element py-4 px-3", className)
@@ -29,7 +30,7 @@ Input.defaultProps = {
 
 type InputPros = {
     value: string,
-    onChange: VoidFunction,
+    onChange: ChangeEventHandler<HTMLInputElement>,
     placeholder?: string
     className?: string
 }

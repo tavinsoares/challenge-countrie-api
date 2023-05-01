@@ -1,6 +1,10 @@
 export const formaterDataCountrie = (data: Array<any>) =>{
     return data.map(
       item => {
+        if(item.title && item.image && item.description){
+          return item;
+        }
+        
         const itemData = {
           title: '',
           image: '',
