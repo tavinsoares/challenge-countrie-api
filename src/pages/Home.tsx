@@ -59,7 +59,7 @@ function Home() {
     if(inputValue === ''){
       run(countriesAPI.all())
     }
-
+  //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [run, inputValue])
 
   const OnSelectRegion = (option: SingleValue<{

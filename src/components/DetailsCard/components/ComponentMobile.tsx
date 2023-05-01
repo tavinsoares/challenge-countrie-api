@@ -29,7 +29,7 @@ const ComponentMobile = ({ image, title, infos, infosValue, borderCountries }: C
                     const valueKey = key.replaceAll('_', ' ');
                     let containerClasses = '';
 
-                    if(index === 4 || index == 6){
+                    if(index === 4 || index === 6){
                         containerClasses = 'sm:pb-2'
                     }
                     

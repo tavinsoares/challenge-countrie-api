@@ -31,7 +31,7 @@ const useAsync = ({ storageName, formater }: useAsyncParams) => {
        },
      );
   
-    }, [])
+    }, [formater, setData])
   
     return { data, run }
 }

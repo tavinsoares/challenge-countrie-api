@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import { CardProps } from './components/types';
 
-type CountrieCards = {
+type CountrieCardsProps = {
   cards: Array<CardProps>
 }
 
-const CountrieCards = ({ cards }: CountrieCards) => {
+const CountrieCards = ({ cards }: CountrieCardsProps) => {
   const navigate = useNavigate();
 
   if(!cards || !cards.length){
