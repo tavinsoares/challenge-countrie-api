@@ -1,25 +1,34 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
+
 import ThemeProvider from '../theme/ThemeProvider';
 import Header from '../components/Header';
 import ButtonBack from '../components/ButtonBack';
 import DetailsCard from '../components/DetailsCard';
 
-const dataMock = {
-    data: {
-        image: "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/bandeira/bandeiragrande.jpg/@@images/image",
-        name: 'Belgium',
-        native_name: 'Belgie',
-        population: '11.319.511',
-        region: 'Europe',
-        sub_region: 'Western Europe',
-        capital: 'Brussels',
-        top_level_domain: '.be',
-        currencies: 'Euro',
-        languages: ['Dutch', 'French', 'German'],
-        border_countries: ['France', 'Germany', 'Netherlands']
-    }
-}
+import { countriesAPI } from '../service/countriesAPI';
+import useAsync from '../utils/useAsync';
+import { formaterDetailCard } from '../utils/formaterDetailCard';
 
 const Details = () => {
+    const { name } = useParams();
+
+    const { data, run } = useAsync({
+        storageName: `countrie-${name}`,
+        formater: formaterDetailCard
+       });
+    
+      useEffect(() => {
+        if(data && data.length > 0){
+          return;
+        }
+    
+        const promise = countriesAPI.details(name || '');
+    
+        run(promise)
+      }, [])
+    
+    
     return(
     <ThemeProvider>
         <Header />
@@ -28,7 +37,7 @@ const Details = () => {
             <ButtonBack />
         </section>
         <section className="container md:max-w-[360px] lg:max-w-full">
-            <DetailsCard {...dataMock} />      
+            <DetailsCard {...data} />      
         </section>
         </main>
     </ThemeProvider>

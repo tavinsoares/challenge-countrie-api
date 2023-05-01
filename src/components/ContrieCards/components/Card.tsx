@@ -1,20 +1,14 @@
 import Typography from '../../Typograph';
 import DescriptionCard from './DescriptionCard';
 
-type CardProps = {
-    title: string,
-    description: Array<{
-        title: string
-        content: string
-    }>
-}
+import { CardProps } from './types';
 
-const Card = ({ title, description }: CardProps) => {
+const Card = ({ title, description, image }: CardProps) => {
 
     return (
       <article>
         <div >
-          <img alt="" className="rounded-t-xl" src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/simbolos-nacionais/bandeira/bandeiragrande.jpg/@@images/image" />
+          <img alt="" className="block sm:w-[328px] sm:h-[328px] md:w-[328px] md:h-[328px] lg:w-[271px] lg:h-[250px] rounded-t-xl" src={image} />
         </div>
         <div className="py-6 px-7">
             <Typography 
