@@ -31,7 +31,7 @@ const Details = () => {
     return(
     <ThemeProvider>
         <Header />
-        <main className="lg:h-screen md:h-screen sm:h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
+        <main className="h-full min-h-screen pt-6 bg-gray-light-background dark:bg-blue-dark-background">
         <section className="container">
             <ButtonBack />
         </section>

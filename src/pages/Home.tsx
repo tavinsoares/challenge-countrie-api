@@ -87,7 +87,7 @@ function Home() {
   return (
     <ThemeProvider>
       <Header />
-      <main className="lg:h-screen md:h-screen sm:h-full pt-6 bg-gray-light-background dark:bg-blue-dark-background">
+      <main className="h-full min-h-screen pt-6 bg-gray-light-background dark:bg-blue-dark-background">
         <section className="flex md:justify-between md:flex-row sm:flex-col mx-auto container">
           <Input className="md:w-3/6" value={inputValue} onChange={onChangeInput} placeholder="Search for a country..." />
 
